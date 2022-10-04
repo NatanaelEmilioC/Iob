@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+  flex-direction: column
+}
+
+.mat-table{
+  width: auto;
+  margin: 40px;
+}
