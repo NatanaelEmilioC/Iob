@@ -45,3 +45,15 @@
 .flexExpand {
   flex: 1 1 auto;
 }
+
+.mat-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  margin-right: 5px;
+  overflow: visible;
+}

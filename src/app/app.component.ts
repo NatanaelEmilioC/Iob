@@ -13,6 +13,8 @@ export class AppComponent {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
+  showTable: boolean = false;
+  showDashboard: boolean = false;
 
   imageSrc = 'assets/images/kraken_logo.jpeg'
   imageAlt = 'Kraken controle teste'

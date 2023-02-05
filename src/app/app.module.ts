@@ -10,11 +10,13 @@ import { TableFlexComponent } from './components/table-flex/table-flex.component
 
 
 import { DynamicMatTableModule } from 'dynamic-mat-table';
+import { ChartJsComponent } from './components/chart-js/chart-js/chart-js.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableFlexComponent,
+    ChartJsComponent,
 
   ],
   imports: [

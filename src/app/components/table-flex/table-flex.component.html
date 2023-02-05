@@ -1,7 +1,24 @@
  <mat-table #table [dataSource]="dataSource">
   <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
     <mat-header-cell *cdkHeaderCellDef>{{ column.header }}</mat-header-cell>
-    <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>
+    <mat-cell *cdkCellDef="let row"><!-- {{ column.cell(row) }} -->
+      <span *ngIf="column.header !== 'AÇÃO'">
+        <div *ngIf="column.header !== 'STATUS'">
+          {{column.cell(row)}}
+        </div>
+        <div *ngIf="column.header == 'STATUS' &&  column.cell(row) == 'PASS'" >
+          {{column.cell(row)}}
+          <mat-icon style="color: rgb(129, 218, 129); margin-left: 5px; ">done_all</mat-icon>
+        </div>
+        <div *ngIf="column.header == 'STATUS' &&  column.cell(row) !== 'PASS'" >
+          {{column.cell(row)}}
+          <mat-icon style="color: rgb(238, 63, 63); margin-left: 5px; ">remove_done</mat-icon>
+        </div>
+      </span>
+        <span *ngIf="column.header == 'AÇÃO'">
+          <a [href]="'https://t.ctcdn.com.br/essK16aBUDd_65hp5umT3aMn_i8=/400x400/smart/filters:format(webp)/i606944.png'" target="_blank" class="btn btn-border" download="fileName.pdf"><mat-icon>download</mat-icon></a>
+        </span>
+    </mat-cell>
   </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

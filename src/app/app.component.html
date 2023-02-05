@@ -2,7 +2,7 @@
   <button mat-icon-button (click)="isExpanded = !isExpanded">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 class="app-name">Kraken controle teste</h1>
+  <h1 class="app-name">Kraken Test Tool Automation</h1>
   <span class="flexExpand"></span>
   <img class="img-fluid" src={{imageSrc}}>
 </mat-toolbar>
@@ -18,13 +18,16 @@
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
         <a mat-list-item href="...">Iob - Online</a>
+        <mat-list-item (click)="(showDashboard = !showDashboard) && (showTable = false)" class="parent">
+          <span class="full-width" *ngIf="isExpanded || isShowing">Dashboard</span>
+        </mat-list-item>
         <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
           <span class="full-width" *ngIf="isExpanded || isShowing">Sintese</span>
           <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">
             expand_more</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isShowing || isExpanded">
-          <mat-list-item>Sprint</mat-list-item>
+          <mat-list-item (click)="(showTable = !showTable) && (showDashboard = false) ">Sprint</mat-list-item>
         </div>
       </div>
     </mat-nav-list>
@@ -32,9 +35,14 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <div class="sidenav-content">
+  <div class="sidenav-content" *ngIf="showTable && !showDashboard">
    <app-table-flex [DATA]="this.dataMockSucess"></app-table-flex>
    <app-table-flex [DATA]="this.dataMockUnsucess"></app-table-flex>
+  </div>
+
+  <div class="sidenav-content" *ngIf="showDashboard && !showTable">
+   <!-- <app-table-flex [DATA]="this.dataMockSucess"></app-table-flex> -->
+   <app-chart-js></app-chart-js>
   </div>
 
 </mat-sidenav-container>
