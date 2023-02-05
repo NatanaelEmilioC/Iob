@@ -2,3 +2,20 @@ mat-grid-tile {
   background: white;
   border-color: #673ab7;
 }
+
+mat-grid-list{
+  padding: 15px 0px 0px 0px !important;
+  margin-left: 15px !important;
+  width: 98% !important;
+  width: 90% !important;
+}
+
+.chart-container{
+  position: relative; height:45vh; width:85vw
+}
+
+.chart-draw{
+margin-top: 10px;
+margin-bottom: 10px;
+
+}
